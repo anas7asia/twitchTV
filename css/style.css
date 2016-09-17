@@ -1,0 +1,93 @@
+* {
+  margin: 0em;
+  padding: 0em;
+  box-sizing: border-box; }
+
+body {
+  background: #ebe9f9;
+  background: -moz-linear-gradient(left, #ebe9f9 0%, #d8d0ef 30%, #cec7ec 62%, #ca99e8 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #ebe9f9), color-stop(30%, #d8d0ef), color-stop(62%, #cec7ec), color-stop(100%, #ca99e8));
+  background: -webkit-linear-gradient(left, #ebe9f9 0%, #d8d0ef 30%, #cec7ec 62%, #ca99e8 100%);
+  background: -o-linear-gradient(left, #ebe9f9 0%, #d8d0ef 30%, #cec7ec 62%, #ca99e8 100%);
+  background: -ms-linear-gradient(left, #ebe9f9 0%, #d8d0ef 30%, #cec7ec 62%, #ca99e8 100%); }
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif; }
+  @media screen and (min-width: 660px) {
+    .wrapper {
+      width: 80%; } }
+  @media screen and (min-width: 920px) {
+    .wrapper {
+      width: 70%; } }
+  @media screen and (min-width: 1200px) {
+    .wrapper {
+      width: 60%; } }
+
+header {
+  padding: 1em;
+  background-color: #fff; }
+  header h1 {
+    font-size: 1em; }
+
+.label-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  margin-top: 1em; }
+
+input[type=radio] {
+  display: none; }
+
+.btn {
+  display: inline-block;
+  padding: 1em;
+  border: 4px solid #f0f0f0;
+  border-bottom-width: 0;
+  border-top-left-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+  background-color: #f0f0f0;
+  color: #674172;
+  font-size: 1.2em;
+  font-weight: bold; }
+  .btn:hover {
+    background-color: whitesmoke; }
+
+.btn__active {
+  background-color: #fff;
+  border-color: #fff; }
+  .btn__active:hover {
+    background-color: #fff; }
+
+.channel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2em;
+  background-color: rebeccapurple;
+  border: 4px solid #f0f0f0;
+  border-radius: 0.4em;
+  border-bottom-width: 1.5px; }
+
+.channel:first-of-type {
+  border-top-left-radius: 0; }
+
+.channel:last-of-type {
+  border-bottom: 4px solid #f0f0f0; }
+
+.channel__active {
+  background-color: #913d88;
+  color: #fff; }
+
+.channel-title {
+  flex-grow: 1;
+  font-size: 1em; }
+  .channel-title a {
+    color: #dcc6e0;
+    text-decoration: none; }
+
+.channel-desc {
+  color: #dcc6e0; }
+
+/*# sourceMappingURL=style.css.map */

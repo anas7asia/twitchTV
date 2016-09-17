@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="twitchApp">
+    <head>
+        <title>TwitchTV</title>
+        <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+        <!--<script src="https://code.angularjs.org/1.5.8/angular-messages.min.js"></script>-->
+        <!--<script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>-->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-animate.min.js"></script>-->
+        
+        <script src="app.js"></script>
+        <script src="factories/twitch-factory.js"></script>
+        <script src="controllers/twitch-controller.js"></script>
+
+        <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">-->
+        
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>TwitchTV API</h1> 
+        </header>
+
+        <div class="wrapper">
+            <div ng-controller="TwitchController as twitch">
+
+                <div class="label-container">
+                    <label class="btn" ng-class="{'btn__active': chooseChannels('all')}">
+                        <input type="radio" ng-model="chosenChannels" value="all">
+                        All
+                    </label>
+                    <label class="btn" ng-class="{'btn__active': chooseChannels('online')}">
+                        <input type="radio" ng-model="chosenChannels" value="online">
+                        Online
+                    </label>
+                    <label class="btn" ng-class="{'btn__active': chooseChannels('offline')}">
+                        <input type="radio" ng-model="chosenChannels" value="offline">
+                        Offline
+                    </label>
+                </div>
+
+                <!-- ALL CHANNELS -->
+                <div ng-show="chooseChannels('all')">
+                    <div ng-repeat="channel in channels" class="channel" ng-class="{'channel__active' : channel.stream != null}">
+
+                        <h2 class="channel-title"><a href="{{ channel._links.channel }}">{{ channel.channelName }}</a></h2>
+
+                        <div ng-if="channel.stream == null" class="channel-desc">
+                            Account closed
+                        </div>
+                        <div ng-if="channel.stream != null" class="channel-desc">
+                            {{ channel.stream.game }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ONLINE CHANNELS -->
+                <div ng-show="chooseChannels('online')">
+                    <div ng-repeat="channel in channels | filter:isOnline" class="channel channel__active">
+
+                        <h2 class="channel-title"><a href="{{ channel._links.channel }}">{{ channel.channelName }}</a></h2>
+
+                        <div ng-if="channel.stream != null" class="channel-desc">
+                            {{ channel.stream.game }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OFFLINE CHANNELS -->
+                <div ng-show="chooseChannels('offline')">
+                    <div ng-repeat="channel in channels | filter:isOffline" class="channel">
+
+                        <h2 class="channel-title"><a href="{{ channel._links.channel }}">{{ channel.channelName }}</a></h2>
+
+                        <div class="channel-desc">
+                            Account closed
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end of div.TwitchController -->
+        </div> <!-- end of div.wrapper -->
+    </body>
+</html>

@@ -1,0 +1,104 @@
+$mainFont: Arial, Helvetica, sans-serif
+$channelColor: rgb(102, 51, 153)
+$indentTextColor: rgb(220, 198, 224)
+$break-small: 660px
+$break-medium: 920px
+$break-large: 1200px
+$borderRadius: .4em
+
+
+*
+    margin: 0em
+    padding: 0em
+    box-sizing: border-box
+
+body
+    background: rgba(235,233,249,1)
+    background: -moz-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 30%, rgba(206,199,236,1) 62%, rgba(202,153,232,1) 100%)
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(235,233,249,1)), color-stop(30%, rgba(216,208,239,1)), color-stop(62%, rgba(206,199,236,1)), color-stop(100%, rgba(202,153,232,1)))
+    background: -webkit-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 30%, rgba(206,199,236,1) 62%, rgba(202,153,232,1) 100%)
+    background: -o-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 30%, rgba(206,199,236,1) 62%, rgba(202,153,232,1) 100%)
+    background: -ms-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 30%, rgba(206,199,236,1) 62%, rgba(202,153,232,1) 100%)
+
+.wrapper
+    margin: 0 auto
+    width: 100%
+    font-family: $mainFont
+
+    @media screen and (min-width: $break-small)
+        width: 80%
+    @media screen and (min-width: $break-medium)
+        width: 70%
+    @media screen and (min-width: $break-large)
+        width: 60%
+
+header
+    padding: 1em
+    background-color: #fff
+
+    h1
+        font-size: 1em
+
+.label-container
+    display: flex
+    flex-direction: row
+    justify-content: stretch
+    margin-top: 1em
+
+input[type=radio]
+    display: none
+
+.btn
+    display: inline-block
+    padding: 1em    
+    // width: calc(98%/3)
+    border: 4px solid #f0f0f0
+    border-bottom-width: 0
+    border-top-left-radius: $borderRadius
+    border-top-right-radius: $borderRadius
+    background-color: #f0f0f0
+    color: rgb(103, 65, 114)
+    font-size: 1.2em
+    font-weight: bold
+
+    &:hover
+        background-color: lighten(#f0f0f0, 2)
+
+.btn__active
+    background-color: #fff
+    border-color: #fff
+    
+    &:hover
+        background-color: #fff
+
+
+.channel
+    display: flex
+    flex-direction: row
+    align-items: center
+    padding: 2em
+    background-color: $channelColor
+    border: 4px solid #f0f0f0
+    border-radius: $borderRadius
+    border-bottom-width: 1.5px
+
+.channel:first-of-type
+    border-top-left-radius: 0
+
+.channel:last-of-type
+    border-bottom: 4px solid #f0f0f0
+
+.channel__active 
+    background-color: rgb(145, 61, 136)
+    color: #fff
+
+.channel-title
+    flex-grow: 1
+    font-size: 1em
+
+    a
+        color: $indentTextColor
+        text-decoration: none
+
+.channel-desc
+    color: $indentTextColor       
