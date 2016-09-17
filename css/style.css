@@ -86,6 +86,9 @@ input[type=radio] {
   .channel-title a {
     color: #dcc6e0;
     text-decoration: none; }
+    .channel-title a:hover {
+      color: #fff;
+      text-decoration: underline; }
 
 .channel-desc {
   color: #dcc6e0; }
